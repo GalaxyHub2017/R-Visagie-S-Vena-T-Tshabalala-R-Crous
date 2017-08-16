@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Media;
+using System.Windows.Resources;
+
+namespace Pong
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        DispatcherTimer mytimer;
+        public MainWindow()
+        {
+            InitializeComponent();
+            mytimer = new DispatcherTimer();
+            mytimer.Interval = TimeSpan.FromMilliseconds(10);
+            mytimer.IsEnabled = true;
+            mytimer.Tick += Mytimer_Tick;
+            
+           
+        }
+        int pause = 8;
+        private void makeBounceSound()
+        {
+            Uri pathtofile = new Uri("pack://application:,,,/pong.wav");
+            StreamResourceInfo strm = Application.GetResourceStream(pathtofile);
+            SoundPlayer sp = new SoundPlayer(("pack://application:,,,/pong.wav"));
+            sp.Play();
+
+        }
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left:
+                    paddleState = 0;
+                    break;
+                case Key.Right:
+                    paddleState = 2;
+                    break;
+                case Key.P:
+                    if (pause == 8)
+                    {
+                        pause = 9;
+                    }
+                   else if (pause == 9)
+                    {
+                        pause = 8;
+                    }
+
+                    break;
+                case Key.W:
+                    paddleState = 3;
+                    break;
+                case Key.S:
+                    paddleState = 4;
+                    break;
+                case Key.Down:
+                    paddleState = 5;
+                    break;
+                case Key.Up:
+                    paddleState = 6;
+                    break;
+                default:
+                    paddleState = 1;
+                    break;
+            }
+
+        }
+
+        double velX = 4, velY = 4;
+        double pSpeed = 15;
+        int paddleState = 1;
+        double highscore = 0;
+
+        int meh=0;
+        private void Mytimer_Tick(object sender, EventArgs e)
+        {
+            if (button.IsMouseOver&&meh<4)
+            {
+                Random rnd = new Random();
+                double pos = rnd.Next(Convert.ToInt32(playground.ActualHeight));
+                double posx = rnd.Next(Convert.ToInt32(playground.ActualWidth)); 
+                meh++;
+                Canvas.SetLeft(button, posx);
+                Canvas.SetTop(button, pos);
+            }
+            
+            label1.Content = Convert.ToString(highscore);
+            if (pause == 8)
+            {
+                updateBall();
+                updatePaddle();
+                highscore += 0.5;
+            }
+           
+            KeyDown += MainWindow_KeyDown;
+            KeyUp += MainWindow_KeyUp;
+        }
+
+        private void MainWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            paddleState = 1;
+        }
+
+        private void updatePaddle()
+        {
+            switch (paddleState)
+            {
+                case 1:
+                    break;
+                case 0:
+                    double nextX1 = Canvas.GetLeft(paddle) - pSpeed;
+                    Canvas.SetLeft(paddle, nextX1);
+                    break;
+                case 2:
+                    double nextX2 = Canvas.GetLeft(paddle) + pSpeed;
+                    Canvas.SetLeft(paddle, nextX2);
+                    break;
+                case 3:
+                    double nextX21 = Canvas.GetTop(button1) - pSpeed;
+                    Canvas.SetTop(button1, nextX21);
+                    break;
+                case 4:
+                    double nextX22 = Canvas.GetTop(button1) + pSpeed;
+                    Canvas.SetTop(button1, nextX22);
+                    break;
+                case 5:
+                    double nextX31 = Canvas.GetTop(button2) + pSpeed;
+                    Canvas.SetTop(button2, nextX31);
+                    break;
+                case 6:
+                    double nextX32 = Canvas.GetTop(button2) - pSpeed;
+                    Canvas.SetTop(button2, nextX32);
+                    break;
+
+                     
+
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Canvas.SetLeft(ping, ((playground.ActualWidth) * 0.5)-(ping.ActualWidth)*0.5);
+            Canvas.SetTop(ping, (playground.ActualHeight)*0.75);
+            highscore = 0;
+            Canvas.SetLeft(paddle, (playground.ActualWidth) * 0.5 - (paddle.ActualWidth) * 0.5);
+            ping.Visibility = Visibility.Visible;
+            paddle.Visibility = Visibility.Visible;
+            button.Visibility = Visibility.Hidden;
+            label3.Visibility = Visibility.Hidden;
+            label2.Visibility = Visibility.Hidden;
+            label.Visibility = Visibility.Visible;
+            label1.Visibility = Visibility.Visible;
+            meh = 0;
+
+        }
+        int players = 1;
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Left player:\n W - up\nS - down\nRight player:\nup - up\ndown - down ");
+            button1.Visibility = Visibility.Visible;
+            button2.Visibility = Visibility.Visible;
+            paddle.Visibility = Visibility.Hidden;
+            players = 2;
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            players = 1;
+            button1.Visibility = Visibility.Hidden;
+            button2.Visibility = Visibility.Hidden;
+            paddle.Visibility = Visibility.Visible;
+
+
+        }
+
+        private void updateBall()
+        {
+            
+            double nextX = Canvas.GetLeft(ping) + velX;
+            Canvas.SetLeft(ping, nextX);
+            switch (players)
+            {
+                case 1:
+                    if (nextX <= 0 || nextX + ping.ActualWidth > playground.ActualWidth && velX > 0)
+                    {
+                        velX = -velX;
+                    }
+                    break;
+                case 2:
+                    if ((nextX<=Canvas.GetLeft(button1)+button1.ActualWidth)&&((Canvas.GetTop(ping)+((ping.ActualHeight)*0.5)>=Canvas.GetTop(button1))&&Canvas.GetTop(ping)+((ping.ActualHeight)*0.5)<Canvas.GetTop(button1)+button1.ActualHeight))
+                    {
+                        velX = -velX;
+                    }
+                    if (nextX+ping.ActualWidth>=Canvas.GetLeft(button2)&&((Canvas.GetTop(ping)>=Canvas.GetTop(button2))&&(Canvas.GetTop(ping)+ping.ActualHeight<=Canvas.GetTop(button2)+button2.ActualHeight)))
+                    {
+                        velX = -velX;
+                    }
+                    break;
+            }
+            
+            double nextY = Canvas.GetTop(ping) + velY;
+            Canvas.SetTop(ping, nextY);
+            switch (players)
+            {
+                case 1:
+                    if (nextY <= 0)
+                    {
+                        velY = -velY;
+
+                    }
+                    if (Canvas.GetTop(ping) + ping.ActualHeight >= Canvas.GetTop(paddle) && velY > 0 && ((Canvas.GetLeft(ping) >= Canvas.GetLeft(paddle) - 30) && (Canvas.GetLeft(ping) + ping.ActualWidth <= Canvas.GetLeft(paddle) + paddle.ActualWidth + 30)))
+                    {
+                        velY = -velY;
+
+                    }
+                    if (Canvas.GetTop(ping) + ping.ActualHeight > Canvas.GetTop(paddle) + 5)
+                    {
+                        ping.Visibility = Visibility.Hidden;
+                        paddle.Visibility = Visibility.Hidden;
+                        button.Visibility = Visibility.Visible;
+                        label.Visibility = Visibility.Hidden;
+                        label1.Visibility = Visibility.Hidden;
+                        label2.Content = "High Score:";
+                        string score = $"{highscore}";
+                        label3.Content = score;
+                    }
+                    break;
+                case 2:
+                    if (nextY>=playground.ActualHeight&&velY>0)
+                    {
+                        velY = -velY; 
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+    }
+}
