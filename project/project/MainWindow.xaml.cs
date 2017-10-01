@@ -118,6 +118,8 @@ namespace project
         Girl current;
         DispatcherTimer myanus;
         string selected = "batman";
+        Random qng = new Random();
+        int ques;
         public MainWindow()
         {
             InitializeComponent();
@@ -125,11 +127,29 @@ namespace project
             BatMan = new Girl("BatMan", 20, 1.65, 65.0, "Student", "AstroSoc", "32B", "Currently\nstudying\nat\nRhodes\nUniversity", "Batman:\nBegins", "Brown");
             BatMan.Q1.Add(new Question("Do you believe in alien life?", "Well who can say, I've never seen anything but that doesnt disprove it", "Yeah aliens are totally real, i partied with some last night", "Hell no bitch, you cray cray","You know what , I think youre right ;)", "Ugh some guys are so immature!!","What did you just say???????!!!!!!"));
             myanus = new DispatcherTimer();
+            
             myanus.Interval = TimeSpan.FromMilliseconds(100);
             myanus.IsEnabled = true;
             myanus.Tick += Myanus_Tick;
-           
+            diner.MouseDown += Diner_MouseDown;
+            barimage.MouseDown += Barimage_MouseDown;
+            libimage.MouseDown += Libimage_MouseDown;
+         
+        }
 
+        private void Libimage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Barimage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Diner_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Myanus_Tick(object sender, EventArgs e)
@@ -158,17 +178,155 @@ namespace project
             educationl.Content = "EDUCATION:";
             occl.Content = "OCCUPATION";
             favbookl.Content = "FAVOURITE\n  BOOK:";
-            hangoutl.Content = "FAVOURITE\nHANGOUTL:";
+            hangoutl.Content = "FAVOURITE\nHANGOUT:";
             titsl.Content = "BREAST SIZE:";
             eyecl.Content = "EYE COLOUR:";
         }
+        int qw;
+       
+        public void stringify(int i)
+        {
+            Question quests = current.Q1[i];
+            Random rng = new Random();
+            qw = rng.Next(1, 4);
+            int z = 0;
+            Button a = new Button();
+            Button b = new Button();
+            Button c = new Button();
+            a.Click += A_Click;
+            b.Click += B_Click;
+            c.Click += C_Click;
+            List <Button> butts = new List<Button>() { a, b, c };
+            foreach (Button item in butts)
+            {
+                playground.Children.Add(item);
+                item.Height = 34;
+                item.Width = 444;
+                Canvas.SetLeft(item, 63);
+                Canvas.SetTop(item, 162 + z);
+                z += 56;
+            }
+            switch (qw)
+            {
+                case 1:
+                    if (qw==1)
+                    {
+                        a.Content = quests.CorrectResponse;
+                   
+                        b.Content = quests.Incorrect1;
+                        c.Content = quests.Incorrect2;
+                    }break;
+                case 2:
+                    if (qw == 2)
+                    {
+                        a.Content = quests.Incorrect1;
+                        b.Content = quests.CorrectResponse;
+                        c.Content = quests.Incorrect2;
+                    }
+                    break;
+                case 3:
+                    if (qw == 3)
+                    {
+                        a.Content = quests.Incorrect1;
+                        b.Content = quests.Incorrect2;
+                        c.Content = quests.CorrectResponse;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
 
+        private void C_Click(object sender, RoutedEventArgs e)
+        {
+
+            switch (qw)
+            {
+                case 1:
+                    if (qw == 1)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse2;
+                    }
+                    break;
+                case 2:
+                    if (qw == 2)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse3;
+                    }
+                    break;
+                case 3:
+                    if (qw == 3)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse1;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void B_Click(object sender, RoutedEventArgs e)
+        {
+            switch (qw)
+            {
+                case 1:
+                    if (qw == 1)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse2;
+                    }
+                    break;
+                case 2:
+                    if (qw == 2)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse1;
+                    }
+                    break;
+                case 3:
+                    if (qw == 3)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse3;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void A_Click(object sender, RoutedEventArgs e)
+        {
+            switch (qw)
+            {
+                case 1:
+                    if (qw == 1)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse1;
+                    }
+                    break;
+                case 2:
+                    if (qw == 2)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse2;
+                    }
+                    break;
+                case 3:
+                    if (qw == 3)
+                    {
+                        GirlOutput.Text = current.Q1[ques].HerResponse3;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public enum charlie { a = 1, b, c }
         private void button3_Click(object sender, RoutedEventArgs e)
         {
 
 
-            textBox.Visibility = Visibility.Visible;
-            textBox1.Visibility = Visibility.Visible;
+            GirlOutput.Visibility = Visibility.Visible;
+            Name.Visibility = Visibility.Visible;
             button3.Visibility = Visibility.Hidden;
             response1.Visibility = Visibility.Visible;
             response2.Visibility = Visibility.Visible;
@@ -176,13 +334,13 @@ namespace project
             response1.Content = BatMan.Q1[0].Incorrect1;
             response2.Content = BatMan.Q1[0].CorrectResponse;
             response3.Content = BatMan.Q1[0].Incorrect2;
-            textBox.Text = Convert.ToString(BatMan);
-            textBox1.Text = Convert.ToString(BatMan.Q1[0]);
+            GirlOutput.Text = Convert.ToString(BatMan);
+            Name.Text = Convert.ToString(BatMan.Q1[0]);
         }
 
         private void response2_Click(object sender, RoutedEventArgs e)
         {
-            textBox1.Text = $"{BatMan.Q1[0].HerResponse1}";
+            Name.Text = $"{BatMan.Q1[0].HerResponse1}";
             response1.Visibility = Visibility.Hidden;
             response2.Visibility = Visibility.Hidden;
             response3.Visibility = Visibility.Hidden;
@@ -190,7 +348,7 @@ namespace project
 
         private void response1_Click(object sender, RoutedEventArgs e)
         {
-            textBox1.Text = $"{BatMan.Q1[0].HerResponse2}";
+            Name.Text = $"{BatMan.Q1[0].HerResponse2}";
             response1.Visibility = Visibility.Hidden;
             response2.Visibility = Visibility.Hidden;
             response3.Visibility = Visibility.Hidden;
@@ -198,10 +356,15 @@ namespace project
         
         private void response3_Click(object sender, RoutedEventArgs e)
         {
-            textBox1.Text = $"{BatMan.Q1[0].HerResponse3}";
+            Name.Text = $"{BatMan.Q1[0].HerResponse3}";
             response1.Visibility = Visibility.Hidden;
             response2.Visibility = Visibility.Hidden;
             response3.Visibility = Visibility.Hidden;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
