@@ -109,7 +109,6 @@
   <ItemGroup>
     <Resource Include="BadGirl-Angry.jpg" />
     <Resource Include="BadGirl-Happy.jpg" />
-    <Resource Include="BadGirl-Normal.jpg" />
     <Resource Include="BadGirl-Normal.png" />
     <Resource Include="BadHappy-Sad.jpg" />
   </ItemGroup>
@@ -124,6 +123,21 @@
     <Resource Include="Bar.png" />
     <Resource Include="Diner.jpg" />
     <Resource Include="Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Nerdy-Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Average-Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beach.jpg" />
+    <Resource Include="Campus.jpg" />
+    <Resource Include="Mall.jpg" />
+    <Resource Include="Park.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Walking.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

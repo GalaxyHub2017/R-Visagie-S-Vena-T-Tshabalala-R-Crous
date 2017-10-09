@@ -29,3 +29,45 @@ C:\Users\Richard Crous\documents\visual studio 2015\Projects\project\project\obj
 E:\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\bin\Debug\project.exe.config
 E:\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.exe
 E:\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.pdb
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe.config
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.exe
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.pdb
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.pdb
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.g.cs
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\App.g.cs
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.cache
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.lref
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.baml
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.g.resources
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.Properties.Resources.resources
+\\ict.ru.ac.za\DFS\UGHomes\g16t5351\My Documents\My Pictures\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe.config
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.exe
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.pdb
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.pdb
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.g.cs
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\App.g.cs
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.cache
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.lref
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.baml
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.g.resources
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.Properties.Resources.resources
+C:\Users\g16t5351\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\bin\Debug\project.exe.config
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.exe
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.pdb
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\bin\Debug\project.exe
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\bin\Debug\project.pdb
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\MainWindow.g.cs
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\App.g.cs
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project_MarkupCompile.cache
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project_MarkupCompile.lref
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\MainWindow.baml
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.g.resources
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.Properties.Resources.resources
+C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.csproj.GenerateResource.Cache

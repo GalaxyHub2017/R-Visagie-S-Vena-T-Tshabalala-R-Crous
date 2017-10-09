@@ -15,12 +15,17 @@ using System.Windows.Shapes;
 using System.Media;
 using System.Windows.Threading;
 
+using System.Diagnostics;
 namespace project
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
+    public class GirlAlreadyHereException : ApplicationException
+    {
+
+    }
     public class Question
     {
         public string Quest { get; private set; }
@@ -79,6 +84,7 @@ namespace project
     }
     public class Girl
     {
+        public int Progress { get; private set; }
         public string Name { get; private set; }
         public int Age { get; private set; }
         public double Height { get; private set; }
@@ -103,6 +109,7 @@ namespace project
             Education = ed;
             FavouriteBook = fb;
             EyeColour = ec;
+            Progress = 0;
         }
         public override string ToString()
         {
@@ -116,40 +123,223 @@ namespace project
     {
         Girl BatMan;
         Girl current;
-        DispatcherTimer myanus;
+        DispatcherTimer timer;
         string selected = "batman";
         Random qng = new Random();
         int ques;
+        int girlNum;
+        Random prod = new Random();
+        int salsa;
+
+        //Relative path of all our images
+        string inThisProject = "pack://application:,,,/";
+
+        //Bitmap Array for our girls 
+        public BitmapImage[] theGirls;
+
+        //Array for the backgrounds
+        public BitmapImage[] Back;
+
+        string[] names = { "Joanne", "Tiffany", "Jackie" }; 
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            /*
             BatMan = new Girl("BatMan", 20, 1.65, 65.0, "Student", "AstroSoc", "32B", "Currently\nstudying\nat\nRhodes\nUniversity", "Batman:\nBegins", "Brown");
             BatMan.Q1.Add(new Question("Do you believe in alien life?", "Well who can say, I've never seen anything but that doesnt disprove it", "Yeah aliens are totally real, i partied with some last night", "Hell no bitch, you cray cray","You know what , I think youre right ;)", "Ugh some guys are so immature!!","What did you just say???????!!!!!!"));
-            myanus = new DispatcherTimer();
             
-            myanus.Interval = TimeSpan.FromMilliseconds(100);
-            myanus.IsEnabled = true;
-            myanus.Tick += Myanus_Tick;
+            */
+            theGirls= new BitmapImage[] {
+                    new BitmapImage(new Uri(inThisProject + "Average-Normal.png")),
+                    new BitmapImage(new Uri(inThisProject + "BadGirl-Normal.png")),
+                    new BitmapImage(new Uri(inThisProject + "Nerdy-Normal.png")) };
+            Back = new BitmapImage[] {
+                    new BitmapImage(new Uri(inThisProject + "Bar.png")),
+                    new BitmapImage(new Uri(inThisProject + "Beach.jpg")),
+                    new BitmapImage(new Uri(inThisProject + "Campus.jpg")), 
+                    new BitmapImage(new Uri(inThisProject + "Park.jpg")),
+                    new BitmapImage(new Uri(inThisProject + "Mall.jpg")),
+                    new BitmapImage(new Uri(inThisProject + "Library.png")),
+                    new BitmapImage(new Uri(inThisProject + "Diner.jpg"))};
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(100);
+            timer.IsEnabled = true;
+            timer.Tick += Myanus_Tick;
             diner.MouseDown += Diner_MouseDown;
             barimage.MouseDown += Barimage_MouseDown;
             libimage.MouseDown += Libimage_MouseDown;
-         
+            Girl0.MouseDown += Girl0_MouseDown;
+            Girl1.MouseDown += Girl1_MouseDown;
+            Girl2.MouseDown += Girl2_MouseDown;
+        }
+
+        //My timers
+        DispatcherTimer walk;
+        DispatcherTimer walk2;
+        DispatcherTimer walk3;
+
+        private void Girl2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Walking.Visibility == Visibility.Hidden)
+            {
+                Walking.Visibility = Visibility.Visible;
+            }
+            walk = new DispatcherTimer();
+            try
+            {
+                if (girlNum == 2)
+                {
+                    Walking.Visibility = Visibility.Hidden;
+                    throw new GirlAlreadyHereException();
+                }
+                    Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
+                    walk.Interval = TimeSpan.FromSeconds(5);
+                    walk.IsEnabled = true;
+                   
+            }
+            catch (GirlAlreadyHereException)
+            {
+                MessageBox.Show("You're already with her");
+            }
+        }
+
+        private void Walk_Tick(object sender, EventArgs e)
+        {
+            walk.IsEnabled = false;
+            Walking.Visibility = Visibility.Hidden;
+            salsa = prod.Next(0, 7);
+            GirlOutput.Clear();
+          
+                    girlNum = 2;
+                    girl.Source = theGirls[2];
+                    Background.Source = Back[salsa];
+                    Name.Text = names[2];
+        }
+
+        private void Girl1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Walking.Visibility == Visibility.Hidden)
+            {
+                Walking.Visibility = Visibility.Visible;
+            }
+            walk2 = new DispatcherTimer();
+            try
+            {
+                if (girlNum == 1)
+                {
+                    Walking.Visibility = Visibility.Hidden;
+                    throw new GirlAlreadyHereException();
+                }
+                    Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
+                    walk2.Interval = TimeSpan.FromSeconds(5);
+                    walk2.IsEnabled = true;
+                    walk2.Tick += Walk2_Tick;
+            }
+            catch (GirlAlreadyHereException)
+            {
+                MessageBox.Show("You're already with her");
+            }
+        }
+
+        private void Walk2_Tick(object sender, EventArgs e)
+        {
+            walk2.IsEnabled = false;
+            GirlOutput.Clear();
+            salsa = prod.Next(0, 7);
+            Walking.Visibility = Visibility.Hidden;
+            girlNum = 1;
+            girl.Source = theGirls[1];
+            Background.Source = Back[salsa];
+            Name.Text = names[1];
+        }
+
+        private void Girl0_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Walking.Visibility == Visibility.Hidden)
+            {
+                Walking.Visibility = Visibility.Visible;
+            }
+            walk3 = new DispatcherTimer();
+            try
+            {
+                if (girlNum == 0)
+                {
+                    Walking.Visibility = Visibility.Hidden;
+                    throw new GirlAlreadyHereException();
+                }
+               
+                    Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
+                    walk3.Interval = TimeSpan.FromSeconds(5);
+                    walk3.IsEnabled = true;
+                    walk3.Tick += Walk3_Tick;
+            }
+            catch (GirlAlreadyHereException)
+            {
+                MessageBox.Show("You're already with her");
+            }
+        }
+
+        private void Walk3_Tick(object sender, EventArgs e)
+        {
+            walk3.IsEnabled = false;
+            GirlOutput.Clear();
+            salsa = prod.Next(0, 7);
+            Walking.Visibility = Visibility.Hidden;
+            girlNum = 0;
+            girl.Source = theGirls[0];
+            Background.Source = Back[salsa];
+            Name.Text = names[0];
         }
 
         private void Libimage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Background.Source = new BitmapImage(new Uri(inThisProject + "Library.png"));
+            Canvas.SetTop(barimage, playground.ActualHeight - libimage.ActualHeight);
+            Canvas.SetLeft(barimage, playground.ActualWidth - libimage.ActualWidth - 10);
+            Canvas.SetTop(diner, (playground.ActualHeight - libimage.ActualHeight) - diner.ActualHeight);
+            Canvas.SetLeft(diner, (playground.ActualWidth - libimage.ActualWidth) - 10);
+            libimage.Visibility = Visibility.Hidden;
+            Intro.Visibility = Visibility.Hidden;
+            girlNum = 2;
+            Girl2.Source = theGirls[girlNum];
+            Name.Text = names[girlNum];
+            girl.Source = theGirls[girlNum];
+            GirlOutput.Text = "Oh, hello there";
         }
 
         private void Barimage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Background.Source = new BitmapImage(new Uri(inThisProject + "Bar.png"));
+            Canvas.SetTop(libimage, playground.ActualHeight-libimage.ActualHeight);
+            Canvas.SetLeft(libimage, playground.ActualWidth - libimage.ActualWidth -10 );
+            Canvas.SetTop(diner, (playground.ActualHeight - libimage.ActualHeight) - diner.ActualHeight);
+            Canvas.SetLeft(diner, (playground.ActualWidth - libimage.ActualWidth) - 10);
+            barimage.Visibility = Visibility.Hidden;
+            Intro.Visibility = Visibility.Hidden;
+            girlNum = 1;
+            Girl1.Source = theGirls[girlNum];
+            Name.Text = names[girlNum];
+            girl.Source = theGirls[girlNum];
+            GirlOutput.Text = "Hey, you're in my way!";
         }
 
         private void Diner_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Background.Source = new BitmapImage(new Uri(inThisProject+ "Diner.jpg"));
+            Canvas.SetTop(libimage, playground.ActualHeight - libimage.ActualHeight);
+            Canvas.SetLeft(libimage, playground.ActualWidth - libimage.ActualWidth - 10);
+            Canvas.SetTop(barimage, (playground.ActualHeight - libimage.ActualHeight) - diner.ActualHeight);
+            Canvas.SetLeft(barimage, (playground.ActualWidth - libimage.ActualWidth) - 10);
+            diner.Visibility = Visibility.Hidden;
+            Intro.Visibility = Visibility.Hidden;
+            girlNum = 0;
+            Girl0.Source = theGirls[girlNum];
+            Name.Text = names[girlNum];
+            girl.Source = theGirls[girlNum];
+            GirlOutput.Text = "Hey, that's where I usually sit";
+
         }
 
         private void Myanus_Tick(object sender, EventArgs e)
@@ -162,6 +352,7 @@ namespace project
                 default:
                     break;
             }
+            /*
             Age.Content = current.Age;
             height.Content = current.Height;
             weight.Content = current.Weight;
@@ -181,6 +372,7 @@ namespace project
             hangoutl.Content = "FAVOURITE\nHANGOUT:";
             titsl.Content = "BREAST SIZE:";
             eyecl.Content = "EYE COLOUR:";
+            */
         }
         int qw;
        
