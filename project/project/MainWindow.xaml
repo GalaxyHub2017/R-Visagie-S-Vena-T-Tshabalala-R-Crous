@@ -39,7 +39,7 @@
                     <Label x:Name="hangoutl" Content="Label" FontSize="8" Canvas.Left="161" Canvas.Top="132"/>
                     <Label x:Name="favbookl" Content="Label" FontSize="8" Canvas.Left="22" Canvas.Top="220"/>
                     <Label x:Name="heightl" Content="Label" FontSize="8" Canvas.Left="80" Canvas.Top="220"/>
-                    <Label x:Name="titsl" Content="Label" FontSize="8" Canvas.Left="161" Canvas.Top="220"/>
+                    <Label x:Name="breasts" Content="Label" FontSize="8" Canvas.Left="161" Canvas.Top="220"/>
                 </Canvas>
             </Canvas>
 
