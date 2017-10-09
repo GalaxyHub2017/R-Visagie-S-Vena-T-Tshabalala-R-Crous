@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Media;
 using System.Windows.Threading;
+using System.IO;
 
 using System.Diagnostics;
 namespace project
@@ -84,7 +85,7 @@ namespace project
     }
     public class Girl
     {
-        public int Progress { get; private set; }
+        public int Progress { get; set; }
         public string Name { get; private set; }
         public int Age { get; private set; }
         public double Height { get; private set; }
@@ -121,7 +122,52 @@ namespace project
 
     public partial class MainWindow : Window
     {
-        Girl BatMan;
+        public void Load()
+        {
+            string[] zero = File.ReadAllLines("..\\..\\girl0-Progress.txt");
+            string[] one = File.ReadAllLines("..\\..\\girl1-Progress.txt");
+            string[] two = File.ReadAllLines("..\\..\\girl2-Progress.txt");
+            Joanne.Progress = Convert.ToInt32(zero[0]);
+            Tiffany.Progress = Convert.ToInt32(zero[0]);
+            Jackie.Progress = Convert.ToInt32(zero[0]);
+        }
+        public void displayStartupScreen()
+        {
+            Canvas candies = new Canvas();
+            candies.VerticalAlignment = VerticalAlignment.Stretch;
+            candies.HorizontalAlignment = HorizontalAlignment.Stretch;
+            candies.Background = Brushes.DeepPink;
+            Button a = new Button();
+            Button b = new Button();
+            a.Height = 100;
+            a.Width = 300;
+            b.Height = 100;
+            b.Width = 300;
+            candies.Children.Add(a);
+            candies.Children.Add(b);
+            a.Content = "New Game";
+            b.Content = "Load Game";
+            Canvas.SetTop(a, (candies.ActualHeight / 2) - a.ActualHeight - 2.5);
+            Canvas.SetTop(b, (candies.ActualHeight / 2) - b.ActualHeight + 2.5);
+            Canvas.SetLeft(a, (candies.ActualWidth / 2) - a.ActualWidth );
+            Canvas.SetLeft(b, (candies.ActualWidth / 2) - b.ActualWidth );
+
+        }
+       
+        
+        public void Save()
+        {
+            TextWriter myfile = File.CreateText("..\\..\\girl0-Progress.txt");
+            TextWriter myfile1 = File.CreateText("..\\..\\girl1-Progress.txt");
+            TextWriter myfile2 = File.CreateText("..\\..\\girl2-Progress.txt");
+            myfile.WriteLine($"{Joanne.Progress}");
+            myfile1.WriteLine($"{Tiffany.Progress}");
+            myfile2.WriteLine($"{Jackie.Progress}");
+
+        }
+        Girl Joanne;
+        Girl Tiffany;
+        Girl Jackie;
         Girl current;
         DispatcherTimer timer;
         string selected = "batman";
@@ -140,17 +186,16 @@ namespace project
         //Array for the backgrounds
         public BitmapImage[] Back;
 
+       
         string[] names = { "Joanne", "Tiffany", "Jackie" }; 
         public MainWindow()
         {
             InitializeComponent();
-
-            /*
-            BatMan = new Girl("BatMan", 20, 1.65, 65.0, "Student", "AstroSoc", "32B", "Currently\nstudying\nat\nRhodes\nUniversity", "Batman:\nBegins", "Brown");
-            BatMan.Q1.Add(new Question("Do you believe in alien life?", "Well who can say, I've never seen anything but that doesnt disprove it", "Yeah aliens are totally real, i partied with some last night", "Hell no bitch, you cray cray","You know what , I think youre right ;)", "Ugh some guys are so immature!!","What did you just say???????!!!!!!"));
             
-            */
-            theGirls= new BitmapImage[] {
+            Joanne = new Girl("Joanne", 0, 0, 0, null, null, null, null, null, null);
+            Tiffany = new Girl("Tiffany", 0, 0, 0, null, null, null, null, null, null);
+            Jackie = new Girl("Jackie", 0, 0, 0, null, null, null, null, null, null);
+            theGirls = new BitmapImage[] {
                     new BitmapImage(new Uri(inThisProject + "Average-Normal.png")),
                     new BitmapImage(new Uri(inThisProject + "BadGirl-Normal.png")),
                     new BitmapImage(new Uri(inThisProject + "Nerdy-Normal.png")) };
@@ -182,6 +227,7 @@ namespace project
 
         private void Girl2_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            
             if (Walking.Visibility == Visibility.Hidden)
             {
                 Walking.Visibility = Visibility.Visible;
@@ -197,6 +243,7 @@ namespace project
                     Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
                     walk.Interval = TimeSpan.FromSeconds(5);
                     walk.IsEnabled = true;
+                walk.Tick += Walk_Tick;
                    
             }
             catch (GirlAlreadyHereException)
@@ -204,6 +251,7 @@ namespace project
                 MessageBox.Show("You're already with her");
             }
         }
+
 
         private void Walk_Tick(object sender, EventArgs e)
         {
@@ -347,7 +395,7 @@ namespace project
             switch (selected)
             {
                 case "batman":
-                    current = BatMan;
+                    current = Joanne;
                     break;
                 default:
                     break;
@@ -513,50 +561,7 @@ namespace project
         }
 
         public enum charlie { a = 1, b, c }
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-
-
-            GirlOutput.Visibility = Visibility.Visible;
-            Name.Visibility = Visibility.Visible;
-            button3.Visibility = Visibility.Hidden;
-            response1.Visibility = Visibility.Visible;
-            response2.Visibility = Visibility.Visible;
-            response3.Visibility = Visibility.Visible;
-            response1.Content = BatMan.Q1[0].Incorrect1;
-            response2.Content = BatMan.Q1[0].CorrectResponse;
-            response3.Content = BatMan.Q1[0].Incorrect2;
-            GirlOutput.Text = Convert.ToString(BatMan);
-            Name.Text = Convert.ToString(BatMan.Q1[0]);
-        }
-
-        private void response2_Click(object sender, RoutedEventArgs e)
-        {
-            Name.Text = $"{BatMan.Q1[0].HerResponse1}";
-            response1.Visibility = Visibility.Hidden;
-            response2.Visibility = Visibility.Hidden;
-            response3.Visibility = Visibility.Hidden;
-        }
-
-        private void response1_Click(object sender, RoutedEventArgs e)
-        {
-            Name.Text = $"{BatMan.Q1[0].HerResponse2}";
-            response1.Visibility = Visibility.Hidden;
-            response2.Visibility = Visibility.Hidden;
-            response3.Visibility = Visibility.Hidden;
-        }
-        
-        private void response3_Click(object sender, RoutedEventArgs e)
-        {
-            Name.Text = $"{BatMan.Q1[0].HerResponse3}";
-            response1.Visibility = Visibility.Hidden;
-            response2.Visibility = Visibility.Hidden;
-            response3.Visibility = Visibility.Hidden;
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
+      
     }
 }

@@ -9,12 +9,12 @@
     <Grid>
         <Canvas x:Name="playground" HorizontalAlignment="Stretch" Background="Pink" VerticalAlignment="Stretch">
             <Image x:Name="Background" Height="1076" Width="1085" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Canvas.Top="-236" Canvas.Left="-114"/>
-            <Button x:Name="button3"    Content="Talk" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="97" Height="30" Click="button3_Click" Canvas.Left="207" Canvas.Top="337"/>
+            <Button x:Name="button3"    Content="Talk" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="97" Height="30"  Canvas.Left="207" Canvas.Top="337"/>
             <TextBox x:Name="Name"   HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="10" Canvas.Top="457"/>
             <TextBox x:Name="GirlOutput"  HorizontalAlignment="Left" Height="83"  TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Canvas.Left="10" Canvas.Top="504"/>
-            <Button x:Name="response3"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Click="response3_Click" Canvas.Left="63" Canvas.Top="273"/>
-            <Button x:Name="response2"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Click="response2_Click" Canvas.Left="63" Canvas.Top="218"/>
-            <Button x:Name="response1"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Click="response1_Click" Canvas.Left="63" Canvas.Top="162"/>
+            <Button x:Name="response3"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34"  Canvas.Left="63" Canvas.Top="273"/>
+            <Button x:Name="response2"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Canvas.Left="63" Canvas.Top="218"/>
+            <Button x:Name="response1"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Canvas.Left="63" Canvas.Top="162"/>
             <Image x:Name="Girl" Height="186" Canvas.Left="513" Canvas.Top="10" Visibility="Hidden" Source="Average-Agrees.jpg" Width="246"/>
             <Canvas x:Name="huniebee" Height="388" Canvas.Left="512" Canvas.Top="201" Visibility="Hidden" Background="White" Width="246">
                 <Canvas x:Name="hunieScreen" Height="321" Canvas.Left="10" Canvas.Top="7" Width="226">
