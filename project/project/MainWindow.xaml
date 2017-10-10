@@ -56,12 +56,12 @@
             <Image x:Name="Girl0" Height="100" Canvas.Left="378" Canvas.Top="10" Width="100"/>
             <Canvas Height="100" Canvas.Left="378" Canvas.Top="288" Width="100"/>
         </Canvas >
-        <Image x:Name="Walking" HorizontalAlignment="Left" Height="1305" VerticalAlignment="Top" Width="1019" Margin="-195,-42,-31,-640"/>
+       
         <Canvas HorizontalAlignment="Left" Height="100" Margin="294,-166,0,0" VerticalAlignment="Top" Width="100"/>
         <Canvas x:Name="StartupScreeen" Background="DeepPink"  HorizontalAlignment="Stretch" Height="623" VerticalAlignment="Stretch" Width="793">
             <Button x:Name="New" Content="New Game" Canvas.Left="258" Canvas.Top="291" Width="220" Height="47" FontSize="18" Click="New_Click"/>
             <Button x:Name="Loada" Content="Load Game" Canvas.Left="258" Canvas.Top="404" Width="220" Height="46" FontSize="18"/>
         </Canvas>
-
+     <Image x:Name="Walking" Visibility="Hidden" Source="Walking.jpg" HorizontalAlignment="Left" Height="1305" VerticalAlignment="Top" Width="1019" Margin="-195,-42,-31,-640"/>
     </Grid>
 </Window>

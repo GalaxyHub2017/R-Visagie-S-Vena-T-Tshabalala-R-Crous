@@ -27,6 +27,11 @@ namespace project
     {
 
     }
+    public class GameAlreadyExistsException : ApplicationException
+    {
+       
+    }
+
     public class Question
     {
         public string Quest { get; private set; }
@@ -110,7 +115,7 @@ namespace project
             Education = ed;
             FavouriteBook = fb;
             EyeColour = ec;
-            Progress = 0;
+            Progress = 1;
         }
         public override string ToString()
         {
@@ -128,8 +133,8 @@ namespace project
             string[] one = File.ReadAllLines("..\\..\\girl1-Progress.txt");
             string[] two = File.ReadAllLines("..\\..\\girl2-Progress.txt");
             Joanne.Progress = Convert.ToInt32(zero[0]);
-            Tiffany.Progress = Convert.ToInt32(zero[0]);
-            Jackie.Progress = Convert.ToInt32(zero[0]);
+            Tiffany.Progress = Convert.ToInt32(one[0]);
+            Jackie.Progress = Convert.ToInt32(two[0]);
         }
         public void displayStartupScreen()
         {
@@ -568,35 +573,61 @@ namespace project
             Loada.Visibility = Visibility.Hidden;
             try
             {
+                if (Joanne.Progress != 0 || Jackie.Progress != 0 || Tiffany.Progress != 0) throw new GameAlreadyExistsException();
+                if (Walking.Visibility == Visibility.Hidden)
+                {
+                    Walking.Visibility = Visibility.Visible;
+                }
+                loadNewGame.IsEnabled = true;
+                loadNewGame.Interval = TimeSpan.FromSeconds(5);
+                loadNewGame.Tick += LoadNewGame_Tick;
+
+
+
+            }
+            catch (GameAlreadyExistsException)
+            {
+
+                MessageBox.Show("There is already a saved file ");
                 Button a = new Button();
                 Button b = new Button();
-                a.Content = "Yes";
-                b.Content = "No";
-                a.Click += A_Click1;
-                b.Click += B_Click1;
+                a.Content = "Start anyway";
+                b.Content = "Continue old save";
                 a.Height = 100;
                 b.Height = 100;
                 a.Width = 300;
                 b.Width = 300;
                 StartupScreeen.Children.Add(a);
                 StartupScreeen.Children.Add(b);
-               
-                Canvas.SetLeft(b, (StartupScreeen.ActualWidth / 2) + (b.ActualWidth / 2));
+                Canvas.SetLeft(b, (StartupScreeen.ActualWidth) - 325);
                 Canvas.SetTop(b, (StartupScreeen.ActualHeight / 2) - (b.ActualHeight / 2));
-                Canvas.SetTop(a, StartupScreeen.ActualHeight/2);
-                Canvas.SetLeft(a, Canvas.GetLeft(a) + 100);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
+                Canvas.SetTop(a, StartupScreeen.ActualHeight / 2);
+                Canvas.SetLeft(a, 25);
+                a.Click += A_Click1;
+                b.Click += B_Click1;
             }
             
         }
 
         private void B_Click1(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //Load();
+            StartupScreeen.Visibility = Visibility.Hidden;
+            playground.Visibility = Visibility.Visible;
+            barimage.Visibility = Visibility.Hidden;
+            libimage.Visibility = Visibility.Hidden;
+            diner.Visibility = Visibility.Hidden;
+            girl.Visibility = Visibility.Visible;
+            girl.Source = theGirls[0];
+            Background.Visibility = Visibility.Visible;
+            Background.Source= new BitmapImage(new Uri(inThisProject + "Library.png"));
+            Girl0.Source = theGirls[0];
+            Girl0.Visibility = Visibility.Visible;
+            Girl1.Source = theGirls[1];
+            Girl1.Visibility = Visibility.Visible;
+            Girl2.Source = theGirls[2];
+            Girl2.Visibility = Visibility.Visible;
+
         }
 
         private void A_Click1(object sender, RoutedEventArgs e)
@@ -604,20 +635,26 @@ namespace project
             Walking.Visibility = Visibility.Visible;
             Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
             
-            loadNewGame.Interval = TimeSpan.FromSeconds(3);
+            
             loadNewGame.IsEnabled = true;
+            loadNewGame.Interval = TimeSpan.FromSeconds(5);
+            loadNewGame.Tick += LoadNewGame_Tick;
             Walking.Visibility = Visibility.Hidden;
             StartupScreeen.Visibility = Visibility.Hidden;
            
-            loadNewGame.Tick += LoadNewGame_Tick;
+            
             playground.Visibility = Visibility.Visible;
 
         }
 
         private void LoadNewGame_Tick(object sender, EventArgs e)
         {
+            
             loadNewGame.IsEnabled = false;
-           
+            StartupScreeen.Visibility = Visibility.Hidden;
+            playground.Visibility = Visibility.Visible;
+            Walking.Visibility = Visibility.Hidden;
+
         }
     }
 }

@@ -71,3 +71,20 @@ C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project
 C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.g.resources
 C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.Properties.Resources.resources
 C:\Users\g17c4514\Downloads\gitgud\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe.config
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.exe
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.pdb
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.exe
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\bin\Debug\project.pdb
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csprojResolveAssemblyReference.cache
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.g.cs
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\App.g.cs
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.cache
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project_MarkupCompile.lref
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\MainWindow.baml
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.g.resources
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.Properties.Resources.resources
+C:\Users\Richard Crous\Downloads\R-Visagie-S-Vena-T-Tshabalala-R-Crous-master\project\project\obj\Debug\project.csproj.GenerateResource.Cache
+C:\Users\Richard Crous\Desktop\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\bin\Debug\project.exe.config
+C:\Users\Richard Crous\Desktop\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.exe
+C:\Users\Richard Crous\Desktop\PortableGit\R-Visagie-S-Vena-T-Tshabalala-R-Crous\project\project\obj\Debug\project.pdb
