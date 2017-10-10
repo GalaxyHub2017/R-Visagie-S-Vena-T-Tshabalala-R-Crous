@@ -136,7 +136,7 @@ namespace project
             Canvas candies = new Canvas();
             candies.VerticalAlignment = VerticalAlignment.Stretch;
             candies.HorizontalAlignment = HorizontalAlignment.Stretch;
-            candies.Background = Brushes.DeepPink;
+            candies.Background = Brushes.Aquamarine;
             Button a = new Button();
             Button b = new Button();
             a.Height = 100;
@@ -559,9 +559,65 @@ namespace project
                     break;
             }
         }
-
+        DispatcherTimer loadNewGame = new DispatcherTimer();
         public enum charlie { a = 1, b, c }
-    
-      
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            New.Visibility = Visibility.Hidden;
+            Loada.Visibility = Visibility.Hidden;
+            try
+            {
+                Button a = new Button();
+                Button b = new Button();
+                a.Content = "Yes";
+                b.Content = "No";
+                a.Click += A_Click1;
+                b.Click += B_Click1;
+                a.Height = 100;
+                b.Height = 100;
+                a.Width = 300;
+                b.Width = 300;
+                StartupScreeen.Children.Add(a);
+                StartupScreeen.Children.Add(b);
+               
+                Canvas.SetLeft(b, (StartupScreeen.ActualWidth / 2) + (b.ActualWidth / 2));
+                Canvas.SetTop(b, (StartupScreeen.ActualHeight / 2) - (b.ActualHeight / 2));
+                Canvas.SetTop(a, StartupScreeen.ActualHeight/2);
+                Canvas.SetLeft(a, Canvas.GetLeft(a) + 100);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+        }
+
+        private void B_Click1(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void A_Click1(object sender, RoutedEventArgs e)
+        {
+            Walking.Visibility = Visibility.Visible;
+            Walking.Source = new BitmapImage(new Uri(inThisProject + "Walking.jpg"));
+            
+            loadNewGame.Interval = TimeSpan.FromSeconds(3);
+            loadNewGame.IsEnabled = true;
+            Walking.Visibility = Visibility.Hidden;
+            StartupScreeen.Visibility = Visibility.Hidden;
+           
+            loadNewGame.Tick += LoadNewGame_Tick;
+            playground.Visibility = Visibility.Visible;
+
+        }
+
+        private void LoadNewGame_Tick(object sender, EventArgs e)
+        {
+            loadNewGame.IsEnabled = false;
+           
+        }
     }
 }

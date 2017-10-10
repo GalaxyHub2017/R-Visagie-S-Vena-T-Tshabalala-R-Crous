@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="654.346" Width="801.165">
     <Grid>
-        <Canvas x:Name="playground" HorizontalAlignment="Stretch" Background="Pink" VerticalAlignment="Stretch">
+        <Canvas x:Name="playground" HorizontalAlignment="Stretch" Background="Pink" VerticalAlignment="Stretch" Visibility="Hidden">
             <Image x:Name="Background" Height="1076" Width="1085" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Canvas.Top="-236" Canvas.Left="-114"/>
             <Button x:Name="button3"    Content="Talk" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="97" Height="30"  Canvas.Left="207" Canvas.Top="337"/>
             <TextBox x:Name="Name"   HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="10" Canvas.Top="457"/>
@@ -54,8 +54,14 @@
             <Image x:Name="Girl2" Height="100" Canvas.Left="624" Canvas.Top="10" Width="100"/>
             <Image x:Name="Girl1" Height="100" Canvas.Left="495" Canvas.Top="10" Width="100" RenderTransformOrigin="1.1,0.57"/>
             <Image x:Name="Girl0" Height="100" Canvas.Left="378" Canvas.Top="10" Width="100"/>
-        </Canvas>
+            <Canvas Height="100" Canvas.Left="378" Canvas.Top="288" Width="100"/>
+        </Canvas >
         <Image x:Name="Walking" HorizontalAlignment="Left" Height="1305" VerticalAlignment="Top" Width="1019" Margin="-195,-42,-31,-640"/>
+        <Canvas HorizontalAlignment="Left" Height="100" Margin="294,-166,0,0" VerticalAlignment="Top" Width="100"/>
+        <Canvas x:Name="StartupScreeen" Background="DeepPink"  HorizontalAlignment="Stretch" Height="623" VerticalAlignment="Stretch" Width="793">
+            <Button x:Name="New" Content="New Game" Canvas.Left="258" Canvas.Top="291" Width="220" Height="47" FontSize="18" Click="New_Click"/>
+            <Button x:Name="Loada" Content="Load Game" Canvas.Left="258" Canvas.Top="404" Width="220" Height="46" FontSize="18"/>
+        </Canvas>
 
     </Grid>
 </Window>
