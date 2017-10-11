@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="654.346" Width="801.165">
     <Grid>
-        <Canvas x:Name="playground" HorizontalAlignment="Stretch" Background="Pink" VerticalAlignment="Stretch" Visibility="Hidden">
+        <Canvas x:Name="playground" HorizontalAlignment="Stretch" Background="Pink" VerticalAlignment="Stretch" >
             <Image x:Name="Background" Height="1076" Width="1085" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Canvas.Top="-236" Canvas.Left="-114"/>
             <Button x:Name="button3"    Content="Talk" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="97" Height="30"  Canvas.Left="207" Canvas.Top="337"/>
-            <TextBox x:Name="Name"   HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="10" Canvas.Top="457"/>
-            <TextBox x:Name="GirlOutput"  HorizontalAlignment="Left" Height="83"  TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Canvas.Left="10" Canvas.Top="504"/>
+            <TextBox x:Name="Name" Visibility="Hidden"   HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Canvas.Left="10" Canvas.Top="457"/>
+            <TextBox x:Name="GirlOutput"  HorizontalAlignment="Left" Height="83"  TextWrapping="Wrap" VerticalAlignment="Top" Width="497" Canvas.Left="10" Visibility="Hidden" Canvas.Top="504"/>
             <Button x:Name="response3"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34"  Canvas.Left="63" Canvas.Top="273"/>
             <Button x:Name="response2"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Canvas.Left="63" Canvas.Top="218"/>
             <Button x:Name="response1"  Content="" HorizontalAlignment="Left" Visibility="Hidden" VerticalAlignment="Top" Width="444" Height="34" Canvas.Left="63" Canvas.Top="162"/>
@@ -50,18 +50,18 @@
             <Label x:Name="Library" Content="Library" Background="YellowGreen" Canvas.Left="63" Canvas.Top="360" Visibility="Hidden" Width="75" FontWeight="Bold"/>
             <Label x:Name="Bar"  Background="DarkRed" Content="Bar" Canvas.Left="338" HorizontalAlignment="Center" Visibility="Hidden" Canvas.Top="360" Width="51" FontWeight="Bold"/>
             <Label x:Name="Diner" Background="Aqua" Content="Diner"  Canvas.Left="557" Canvas.Top="360" Visibility="Hidden" RenderTransformOrigin="0.5,0.962" Width="70" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold"/>
-            <Image x:Name="girl" Height="337" Canvas.Left="153" Canvas.Top="162" Width="387"/>
-            <Image x:Name="Girl2" Height="100" Canvas.Left="624" Canvas.Top="10" Width="100"/>
-            <Image x:Name="Girl1" Height="100" Canvas.Left="495" Canvas.Top="10" Width="100" RenderTransformOrigin="1.1,0.57"/>
-            <Image x:Name="Girl0" Height="100" Canvas.Left="378" Canvas.Top="10" Width="100"/>
+            <Image x:Name="girl" Visibility="Hidden" Height="337" Canvas.Left="153" Canvas.Top="162" Width="387" Source="Average-Sad.png"/>
+            <Image x:Name="Girl2" Height="100" Canvas.Left="683" Canvas.Top="10" Width="100"/>
+            <Image x:Name="Girl1" Height="100" Canvas.Left="591" Canvas.Top="10" Width="100" RenderTransformOrigin="1.1,0.57"/>
+            <Image x:Name="Girl0" Height="100" Canvas.Left="486" Canvas.Top="10" Width="100"/>
             <Canvas Height="100" Canvas.Left="378" Canvas.Top="288" Width="100"/>
         </Canvas >
-       
+
         <Canvas HorizontalAlignment="Left" Height="100" Margin="294,-166,0,0" VerticalAlignment="Top" Width="100"/>
-        <Canvas x:Name="StartupScreeen" Background="DeepPink"  HorizontalAlignment="Stretch" Height="623" VerticalAlignment="Stretch" Width="793">
+        <Canvas x:Name="StartupScreeen" Background="DeepPink"  HorizontalAlignment="Stretch" Height="623"  VerticalAlignment="Stretch" Width="793">
             <Button x:Name="New" Content="New Game" Canvas.Left="258" Canvas.Top="291" Width="220" Height="47" FontSize="18" Click="New_Click"/>
-            <Button x:Name="Loada" Content="Load Game" Canvas.Left="258" Canvas.Top="404" Width="220" Height="46" FontSize="18"/>
+            <Button x:Name="Loada" Content="Continue" Canvas.Left="258" Canvas.Top="404" Width="220" Height="46" FontSize="18" Click="Loada_Click"/>
         </Canvas>
-     <Image x:Name="Walking" Visibility="Hidden" Source="Walking.jpg" HorizontalAlignment="Left" Height="1305" VerticalAlignment="Top" Width="1019" Margin="-195,-42,-31,-640"/>
+        <Image x:Name="Walking" Visibility="Hidden" Source="Walking.jpg" HorizontalAlignment="Left" Height="1305" VerticalAlignment="Top" Width="1019" Margin="-195,-42,-31,-640"/>
     </Grid>
 </Window>
