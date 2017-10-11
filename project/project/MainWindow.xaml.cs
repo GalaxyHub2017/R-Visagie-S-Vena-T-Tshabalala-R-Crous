@@ -267,7 +267,7 @@ namespace project
             Canvas.SetLeft(delta, 10);
 
             current = Jackie;
-            
+            playground.Children.Remove(t);
             playground.Children.Add(t);
             t.Height = 30;
             t.Width = 200;
@@ -335,6 +335,7 @@ namespace project
             Canvas.SetLeft(delta, 10);
 
             current = Tiffany;
+            playground.Children.Remove(t);
             playground.Children.Add(t);
             t.Height = 30;
             t.Width = 200;
@@ -575,6 +576,8 @@ namespace project
         int helper = 0;
         private void C_Click(object sender, RoutedEventArgs e)
         {
+            playground.Children.Remove(t);
+            playground.Children.Add(t);
             if (helper==0)
             {
                 helper++;
@@ -681,6 +684,8 @@ namespace project
 
         private void B_Click(object sender, RoutedEventArgs e)
         {
+            playground.Children.Remove(t);
+            playground.Children.Add(t);
             a.Visibility = Visibility.Hidden;
             b.Visibility = Visibility.Hidden;
             c.Visibility = Visibility.Hidden;
@@ -785,6 +790,8 @@ namespace project
 
         private void A_Click(object sender, RoutedEventArgs e)
         {
+            playground.Children.Remove(t);
+            playground.Children.Add(t);
             a.Visibility = Visibility.Hidden;
             b.Visibility = Visibility.Hidden;
             c.Visibility = Visibility.Hidden;
